@@ -17,7 +17,7 @@ jobs:
     - name: Prepare
       id: prepare
       run: |
-        DOCKER_IMAGE=tinyangrykitten/HarmonyhubServer
+        DOCKER_IMAGE=tinyangrykitten/harmonyhub-server
         DOCKER_PLATFORMS=linux/arm64
         VERSION=latest
         TAGS="--tag ${DOCKER_IMAGE}:${VERSION} --tag ${DOCKER_IMAGE}:${GITHUB_RUN_NUMBER}"
@@ -50,5 +50,5 @@ jobs:
       with:
         webhook_id: ${{ secrets.WEBHOOK_ID }}
         webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-        message: Docker image tinyangrykitten/HarmonyhubServer has been pushed to docker hub.
+        message: Docker image tinyangrykitten/harmonyhub-server has been pushed to docker hub.
         username: "Builder bot"
