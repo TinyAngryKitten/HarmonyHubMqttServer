@@ -20,9 +20,9 @@ setInterval(function() {
 }, 50000);
 
 //update device and activity definitions every hour
-setInterval(function() {
-    devices = config.device;
-    activities = config.activity;
+setInterval(async function() {
+    devices = await hub.getDevices();
+    activities = await hub.getActivities();
 }, 60*60*1000);
 
 
