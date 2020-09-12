@@ -50,10 +50,9 @@ mqttClient.on('offline', () => console.log("Mqtt client is offline"));
 function sendCommand(deviceName, command) {
     devices.forEach(device => {
                 if(device.label === deviceName) {
-                    hub.holdCommand(
+                    hub.sendCommand(
                         command,
-                        device.id,
-                        10
+                        device.id
                     );
                     console.log("Command sent");
                 }
