@@ -1,9 +1,9 @@
 const HarmonyHub = require('harmonyhub-api').HarmonyHub;
-const HUB_HOST = '10.0.0.99';
+const HUB_HOST = '192.168.50.12';
 const HUB_REMOTE_ID = '16676977';
 const hub = new HarmonyHub(HUB_HOST, HUB_REMOTE_ID);
 const mqtt = require('mqtt');
-const mqttClient  = mqtt.connect('mqtt://10.0.0.96:1883', {
+const mqttClient  = mqtt.connect('mqtt://192.168.50.3:1883', {
     reconnectPeriod: 10000,
 });
 //                harmony / hub placement / device (command are given as message payload)
@@ -73,7 +73,9 @@ function initHub() {
 
             console.log('\nDevices\n========');
             config.device.forEach(device => {
-                console.log(`${device.label} (${device.id})`);
+                //console.log(`${device.label} (${device.id})`);
+                console.log(device.controlGroup.forEach(cg => console.log(cg.function)));
+
             });
 
             devices = config.device;
